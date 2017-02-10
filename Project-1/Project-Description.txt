@@ -1,0 +1,3 @@
+Project-1: Thread Synchronization
+
+Goal: To use synchronized threads to compute an eight input sorting network.
