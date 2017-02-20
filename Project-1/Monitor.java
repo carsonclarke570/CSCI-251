@@ -34,8 +34,9 @@ public class Monitor {
 	public synchronized void putValue(int i, int value)
 			throws IllegalAccessException {
 		if (values[i] != null) {
-			throw new IllegalAccessException("Attempted to put the value "
-					+ value + " at non-empty index " + i);
+			System.err.println("Attempted to put the value " + value
+					+ " at non-empty index " + i);
+			System.exit(1);
 		}
 		values[i] = value;
 		notifyAll();

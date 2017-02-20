@@ -17,7 +17,7 @@ public class CommandLineThread extends Thread {
 
 	// Instance Variables
 	private Monitor monitor;
-	private String[] args;
+	private int[] args;
 
 	/**
 	 * Constructs a new command line argument thread using the command line
@@ -26,7 +26,7 @@ public class CommandLineThread extends Thread {
 	 * @param monitor The monitor for storing the input values.
 	 * @param args The command line arguments
 	 */
-	public CommandLineThread(Monitor monitor, String[] args) {
+	public CommandLineThread(Monitor monitor, int[] args) {
 		this.monitor = monitor;
 		this.args = args;
 	}
@@ -36,15 +36,15 @@ public class CommandLineThread extends Thread {
 	 */
 	public void run() {
 		try {
-			monitor.putValue(0, Integer.parseInt(args[0]));
-			monitor.putValue(1, Integer.parseInt(args[1]));
-			monitor.putValue(4, Integer.parseInt(args[2]));
-			monitor.putValue(7, Integer.parseInt(args[3]));
-			monitor.putValue(10, Integer.parseInt(args[4]));
-			monitor.putValue(13, Integer.parseInt(args[5]));
-			monitor.putValue(16, Integer.parseInt(args[6]));
-			monitor.putValue(19, Integer.parseInt(args[7]));
-		} catch (NumberFormatException | IllegalAccessException e) {
+			monitor.putValue(0, args[0]);
+			monitor.putValue(1, args[1]);
+			monitor.putValue(4, args[2]);
+			monitor.putValue(7, args[3]);
+			monitor.putValue(10, args[4]);
+			monitor.putValue(13, args[5]);
+			monitor.putValue(16, args[6]);
+			monitor.putValue(19, args[7]);
+		} catch (IllegalAccessException e) {
 			e.printStackTrace();
 		}
 	}

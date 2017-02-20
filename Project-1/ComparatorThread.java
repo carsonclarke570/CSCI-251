@@ -42,10 +42,10 @@ public class ComparatorThread extends Thread {
 	 */
 	public void run() {
 		try {
-			monitor.putValue(hiOut,
-					Math.min(monitor.getValue(hiIn), monitor.getValue(loIn)));
-			monitor.putValue(loOut,
-					Math.max(monitor.getValue(hiIn), monitor.getValue(loIn)));
+			int valInLow = monitor.getValue(loIn);
+			int valInHi = monitor.getValue(hiIn);
+			monitor.putValue(hiOut, Math.min(valInHi, valInLow));
+			monitor.putValue(loOut, Math.max(valInHi, valInLow));
 		} catch (IllegalAccessException | InterruptedException e) {
 			e.printStackTrace();
 		}

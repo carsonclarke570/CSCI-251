@@ -35,12 +35,12 @@ public class SortNet {
 			return;
 		}
 		
-		int isInt;
-		for (String s: args) {
+		int[] intArgs = new int[8];
+		for (int i = 0; i < args.length; i++) {
 			try {
-				isInt = Integer.parseInt(s);
+				intArgs[i] = Integer.parseInt(args[i]);
 			} catch (NumberFormatException e) {
-				System.err.println("Argument " + s + " was not formatted currectly");
+				System.err.println("Argument " + args[i] + " was not formatted currectly");
 				usage();
 				return;
 			}
@@ -86,7 +86,7 @@ public class SortNet {
 		}
 		
 
-		CommandLineThread commandThread = new CommandLineThread(monitor, args);
+		CommandLineThread commandThread = new CommandLineThread(monitor, intArgs);
 		commandThread.start();
 		
 	}
